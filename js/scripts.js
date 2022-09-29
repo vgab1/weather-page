@@ -1,9 +1,9 @@
-const apiKey = '';
-const apiCountryURL = 'https://countryflagsapi.com/png/';
+const apiKey = "";
+const apiCountryURL = "https://countryflagsapi.com/png/";
 const apiUnsplash = "https://source.unsplash.com/1600x900/?";
 
-const cityInput = document.querySelector('#city-input');
-const searcBtn = document.querySelector('#search');
+const cityInput = document.querySelector("#city-input");
+const searcBtn = document.querySelector("#search");
 
 const cityElement = document.querySelector("#city");
 const tempElement = document.querySelector("#temperature span");
@@ -13,7 +13,7 @@ const countryElement = document.querySelector("#country");
 const humidityElement = document.querySelector("#humidity span");
 const windElement = document.querySelector("#wind span");
 
-const weatherContainer = document.querySelector('#weather-data');
+const weatherContainer = document.querySelector("#weather-data");
 
 const errorMessageContainer = document.querySelector("#error-message");
 const loader = document.querySelector("#loader");
@@ -22,7 +22,7 @@ const suggestionContainer = document.querySelector("#suggestions");
 const suggestionButtons = document.querySelectorAll("#suggestions button");
 
 const toggleLoader = () => {
-    loader.classList.toggle('hide');
+    loader.classList.toggle("hide");
 };
 
 const getWeatherData = async (city) => {
@@ -37,14 +37,14 @@ const getWeatherData = async (city) => {
 };
 
 const showErrorMessage = () => {
-    errorMessageContainer.classList.remove('hide');
+    errorMessageContainer.classList.remove("hide");
 };
   
   const hideInformation = () => {
-    errorMessageContainer.classList.add('hide');
-    weatherContainer.classList.add('hide');
+    errorMessageContainer.classList.add("hide");
+    weatherContainer.classList.add("hide");
   
-    suggestionContainer.classList.add('hide');
+    suggestionContainer.classList.add("hide");
 };
 
 const showWeatherData = async (city) => {
@@ -67,10 +67,10 @@ const showWeatherData = async (city) => {
 
     document.body.style.backgroundImage = `url('${apiUnsplash + city}')`;
 
-    weatherContainer.classList.remove('hide');
+    weatherContainer.classList.remove("hide");
 };
 
-searcBtn.addEventListener('click', (e) => {
+searcBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     const city = cityInput.value;
@@ -78,8 +78,8 @@ searcBtn.addEventListener('click', (e) => {
     showWeatherData(city);
 });
 
-cityInput.addEventListener('keyup', (e) => {
-    if(e.code === 'Enter') {
+cityInput.addEventListener("keyup", (e) => {
+    if(e.code === "Enter") {
         const city = e.target.value;
 
         showWeatherData(city);
@@ -87,8 +87,8 @@ cityInput.addEventListener('keyup', (e) => {
 });
 
 suggestionButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const city = btn.getAttribute('id');
+    btn.addEventListener("click", () => {
+      const city = btn.getAttribute("id");
   
       showWeatherData(city);
     });
